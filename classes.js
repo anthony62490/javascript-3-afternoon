@@ -29,7 +29,20 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
+class Employee
+{
+  constructor(fname, lname, email, age)
+  {
+    this.first_name = fname;
+    this.last_name = lname;
+    this.email = email;
+    this.age = age;
+  }
+  makeWidget()
+  {
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+}
 
 
 
@@ -49,8 +62,29 @@
   Call your new class Manager
 */
 
-//Code Here
-
+class Manager
+{
+  constructor(fname, lname, email, age)
+  {
+    this.first_name = fname;
+    this.last_name = lname;
+    this.email = email;
+    this.age = age;
+    this.reports = []
+  }
+  makeWidget()
+  {
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+  hire(employee)
+  {
+    this.reports.push(employee);
+  }
+  fire(employeeId)
+  {
+    this.reports.splice(employeeId, 1);
+  }
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -75,8 +109,61 @@
   Call your new class ProgressiveManager
 */
 
-//Code Here
-
+class ProgressiveManager
+{
+  constructor(fname, lname, email, age)
+  {
+    this.first_name = fname;
+    this.last_name = lname;
+    this.email = email;
+    this.age = age;
+    this.title = "Not a manager";
+    this.bonus = 0;
+    this.reports = [];
+    this.employeeChanges = 0;
+  }
+  makeWidget()
+  {
+    return this.first_name + " " + this.last_name + " Widget";
+  }
+  hire(employee)
+  {
+    this.reports.push(employee);
+    this.employeeChanges++;
+    this.checkTitle();
+  }
+  fire(employee)
+  {
+    this.reports.splice(this.reports.indexOf(employee), 1);
+    this.bonus += 100;
+    this.employeeChanges++;
+    this.checkTitle();
+  }
+  checkTitle()
+  {
+    switch(true)
+    {
+      case (this.employeeChanges == 0):
+        this.title = "Not a manager";
+        break;
+      case (this.employeeChanges >= 1 && this.employeeChanges <= 3):
+        this.title = "Barely Manager";
+        break;
+      case (this.employeeChanges >= 4 && this.employeeChanges <= 10):
+        this.title = "Mostly Manager";
+        break;
+      case (this.employeeChanges >= 11 && this.employeeChanges <= 50):
+        this.title = "Manager";
+        break;
+      case (this.employeeChanges >= 51 && this.employeeChanges <= 100):
+        this.title = "Manager Plus";
+        break;
+      case (this.employeeChanges > 101):
+        this.title = "Bestest Manager";
+        break;
+    }
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -102,6 +189,31 @@
         - It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
+class Machine
+{
+  constructor()
+  {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(numOfWidgets)
+  {
+    this.widgets_made_count += numOfWidgets;
+    this.wear_and_tear_count += Math.floor(numOfWidgets/50);
+  }
+  fixMachine()
+  {
+    this.needs_reboot = true;
+  }
+  reboot()
+  {
+    function rebootComplete()
+    {
+      this.wear_and_tear_count -= 10;
+      this.needs_reboot = false;
+    }
+    return rebootComplete();
+  }
 
-
+}
