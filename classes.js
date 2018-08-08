@@ -208,12 +208,13 @@ class Machine
   }
   reboot()
   {
-    function rebootComplete()
+    var self = this;
+    let rebootProcedure = function()
     {
-      this.wear_and_tear_count -= 10;
-      this.needs_reboot = false;
+      self.wear_and_tear_count -= 10;
+      self.needs_reboot = false;
     }
-    return rebootComplete();
+    return rebootProcedure;
   }
 
 }
