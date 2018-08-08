@@ -21,8 +21,10 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
-
+let color = carDetails.color;
+let make = carDetails.make;
+let model = carDetails.model;
+let year = carDetails.year;
 
 
 ////////// PROBLEM 2 //////////
@@ -34,7 +36,9 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
+  let title = obj.title;
+  let firstName = obj.firstName;
+  let lastName = obj.lastName;
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -53,8 +57,14 @@ function greeting( obj ) {
   Sum up the values and return the total number.
 */
 
-//Code Here
-
+function totalPopulation(obj)
+{
+  let pop1 = obj.utah;
+  let pop2 = obj.california;
+  let pop3 = obj.texas;
+  let pop4 = obj.arizona;
+  return pop1 + pop2 + pop3 + pop4;
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -67,8 +77,10 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
-
+function ingredients(obj)
+{
+  return [obj.carb, obj.fat, obj.protein];
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -85,8 +97,17 @@ function greeting( obj ) {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
-
+function largeNumbers(obj)
+{
+  let arr = [obj.first, obj.second, obj.third];
+  let min = arr[0];
+  for(let i=0; i<arr.length; i++)
+  {
+    if(min > arr[i])
+      min = arr[i];
+  }
+  return min;
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -97,6 +118,19 @@ function greeting( obj ) {
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups(obj)
+{
+  let arr = [obj.a, obj.b, obj.c];
+  let max = arr[0].length;
+  let x = 0;
+  for(let i=0; i<arr.length; i++)
+  {
+    if(max < arr[i].length)
+    {
+      max = arr[i];
+      x = i;
+    }
 
-
+  }
+  return arr[x];
+}
