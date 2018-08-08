@@ -74,7 +74,7 @@ class Manager
   }
   makeWidget()
   {
-    return this.first_name + " " + this.last_name + " Widget";
+    return `${this.first_name} ${this.last_name}  Widget`;
   }
   hire(employee)
   {
@@ -124,7 +124,7 @@ class ProgressiveManager
   }
   makeWidget()
   {
-    return this.first_name + " " + this.last_name + " Widget";
+    return `${this.first_name} ${this.last_name} Widget`;
   }
   hire(employee)
   {
